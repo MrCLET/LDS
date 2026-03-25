@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculatrice EJS</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <!-- Container Calculatrice -->
+  <div class="bg-white shadow-xl rounded-2xl p-6 w-80">
+    <!-- Affichage -->
+    <div id="display" class="bg-gray-200 text-right text-3xl font-bold p-4 rounded-lg mb-4 h-16 flex items-center justify-end overflow-x-auto">
+      0
+    </div>
+
+    <!-- Boutons -->
+    <div class="grid grid-cols-4 gap-3">
+      <% const buttons = [
+          ['C','±','%','/'],
+          ['7','8','9','*'],
+          ['4','5','6','-'],
+          ['1','2','3','+'],
+          ['0','0','.','=']
+      ]; %>
+
+      <% buttons.forEach(row => { %>
+        <% row.forEach(btn => { %>
+          <button class="<%= btn === '/' || btn === '*' || btn === '-' || btn === '+' || btn === '=' ? 'bg-orange-500 text-white hover:bg-orange-600' : btn === 'C' ? 'bg-gray-300 hover:bg-gray-400' : 'bg-gray-100 hover:bg-gray-200' %> text-xl font-bold py-4 rounded-lg <%= btn === '0' ? 'col-span-2' : '' %>"
+            onclick="<%= btn === '=' ? 'calculate()' : 'press(\'' + btn + '\')' %>">
+            <%= btn %>
+          </button>
+        <% }) %>
+      <% }) %>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="/js/calculator.js" defer></script>
+</body>
+</html>
