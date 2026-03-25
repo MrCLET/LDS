@@ -14,5 +14,5 @@ app.get('/', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Calculatrice EJS en ligne : http://localhost:${port}`);
+  console.log(`App runing on : http://localhost:${port}`);
 });

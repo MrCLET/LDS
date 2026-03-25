@@ -39,3 +39,8 @@ document.addEventListener('keydown', function(event) {
 
   event.preventDefault();
 });
+
+
+press(''); // Initialiser l'affichage
+
+calculate();
